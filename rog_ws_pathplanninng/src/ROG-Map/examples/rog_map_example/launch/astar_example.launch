@@ -1,0 +1,10 @@
+<!-- 文件路径: rog_map_example/launch/astar_example.launch -->
+<launch>
+    <arg name="rviz_enable" default="true"/>
+    <node name="rm_node" pkg="rog_map_example" type="astar_example_node" output="screen">
+        <rosparam command="load" file="$(find rog_map_example)/config/astar_example.yaml"/>
+    </node>
+    <group if="$(arg rviz_enable)">
+        <node pkg="rviz" type="rviz" name="viz_real" args="-d $(find rog_map_example)/config/viz_default.rviz"/>
+    </group>
+</launch>

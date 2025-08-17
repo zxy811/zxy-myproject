@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>center_line</name>
+  <version>0.1.0</version>
+  <description>葡萄园中心线提取包</description>
+
+  <maintainer email="your_email@example.com">Your Name</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>eigen_conversions</depend>
+  <depend>rog_map</depend>
+  <depend>pcl_ros</depend>
+
+  <export>
+  </export>
+</package>

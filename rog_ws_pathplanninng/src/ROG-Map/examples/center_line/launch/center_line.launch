@@ -1,0 +1,61 @@
+<launch>
+  <!-- 地图参数 -->
+  <arg name="resolution" default="0.1"/>
+  <arg name="x_size" default="20.0"/>
+  <arg name="y_size" default="20.0"/>
+  <arg name="z_size" default="5.0"/>
+  
+  <!-- 中心线参数 -->
+  <arg name="update_distance" default="5.0"/>
+  <arg name="centerline_segment_length" default="10.0"/>
+  <arg name="max_corridor_width" default="3.0"/>
+  <arg name="min_confidence_threshold" default="0.6"/>
+  <arg name="step_size" default="0.2"/>
+  
+  <!-- 起点和方向参数 -->
+  <arg name="start_x" default="0.0"/>
+  <arg name="start_y" default="0.0"/>
+  <arg name="start_z" default="0.0"/>
+  <arg name="dir_x" default="1.0"/>
+  <arg name="dir_y" default="0.0"/>
+  <arg name="dir_z" default="0.0"/>
+  
+  <!-- 话题名称 -->
+  <arg name="odom_topic" default="/Odometry"/>
+  <arg name="pointcloud_topic" default="/cloud_registered"/>
+  <arg name="map_frame" default="map"/>
+  <arg name="robot_frame" default="base_link"/>
+  
+  <!-- 中心线节点 -->
+  <node name="center_line_node" pkg="center_line" type="center_line_node" output="screen">
+    <!-- 地图参数 -->
+    <param name="resolution" value="$(arg resolution)"/>
+    <param name="x_size" value="$(arg x_size)"/>
+    <param name="y_size" value="$(arg y_size)"/>
+    <param name="z_size" value="$(arg z_size)"/>
+    
+    <!-- 中心线参数 -->
+    <param name="update_distance" value="$(arg update_distance)"/>
+    <param name="centerline_segment_length" value="$(arg centerline_segment_length)"/>
+    <param name="max_corridor_width" value="$(arg max_corridor_width)"/>
+    <param name="min_confidence_threshold" value="$(arg min_confidence_threshold)"/>
+    <param name="step_size" value="$(arg step_size)"/>
+    
+    <!-- 起点和方向 -->
+    <param name="start_x" value="$(arg start_x)"/>
+    <param name="start_y" value="$(arg start_y)"/>
+    <param name="start_z" value="$(arg start_z)"/>
+    <param name="dir_x" value="$(arg dir_x)"/>
+    <param name="dir_y" value="$(arg dir_y)"/>
+    <param name="dir_z" value="$(arg dir_z)"/>
+    
+    <!-- 话题与坐标系 -->
+    <param name="odom_topic" value="$(arg odom_topic)"/>
+    <param name="pointcloud_topic" value="$(arg pointcloud_topic)"/>
+    <param name="map_frame" value="$(arg map_frame)"/>
+    <param name="robot_frame" value="$(arg robot_frame)"/>
+  </node>
+  
+  <!-- rviz可视化 -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find center_line)/rviz/center_line.rviz" required="false"/>
+</launch>
