@@ -44,9 +44,12 @@ roslaunch rog_map_example marsim_example.launch
 Use `W` `A` `S` `D` on your keyboard to control the drone's velocity, press the spacebar to stop, and press `Q` orh 2 2 2 `Ctrl + C` to exit.
 
 ### 2 Running A* Search Example
-
 ```bash
 步骤一：
+在astar_example.yaml文件中修改对应标定点参数实现自定义路径规划
+```
+```bash
+步骤二：
 1、使用bag包构建地图
 注意：需修改config文件里面的信息加载PCD选择false
 终端1：
@@ -60,10 +63,6 @@ roslaunch rog_map_example astar_example.launch
 终端1：
 source devel/setup.bash # or source devel/setup.zsh
 roslaunch rog_map_example astar_example.launch 
-```
-```bash
-步骤二：
-在astar_example.yaml文件中修改对应标定点参数实现自定义路径规划
 ```
 运行时画面：
 ![SplRunParkDataset](result.png)
