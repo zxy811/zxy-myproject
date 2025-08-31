@@ -3,7 +3,7 @@
 ### 环境配备
 1. 本文提供对应的镜像，执行拉取命令
 ```
-
+docker pull crpi-z3us5iti0tbgc62p.cn-hangzhou.personal.cr.aliyuncs.com/vitaltech_nj_practice/lss_bev:v1.0
 ```
 2. 进入容器
 ```
